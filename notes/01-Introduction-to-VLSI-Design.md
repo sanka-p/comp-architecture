@@ -1,12 +1,3 @@
-# Introduction to VLSI Design
-
-> **Chapter Overview:** This chapter covers fundamental concepts of integrated circuit design and manufacturing, including IC structure, fabrication processes, design methodologies, business models, and the complete VLSI design flow from concept to chip.
-
-**Prerequisites:** None (foundational material)  
-**Related Topics:** [[04-Logic-Synthesis]], [[14-Physical-Design-Basics]], [[20-Fabrication-and-Packaging]]
-
----
-
 ## 1. Integrated Circuit Fundamentals
 
 ### 1.1 The Copying Principle
