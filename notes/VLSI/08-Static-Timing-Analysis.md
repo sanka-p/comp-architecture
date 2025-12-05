@@ -1,3 +1,28 @@
+
+### Timing Fundamentals
+
+Sequentially adjacent flip-flops: Output of one flip-flop is fed as an input to the other flip-flop through a combinational path
+
+```
+FF_launch --[Combinational Logic]--> FF_capture
+   (Q)                                   (D)
+```
+
+Critical Path: The combinational path that has the largest delay in the circuit
+
+**Maximum frequency:**
+$$f_{max} < \frac{1}{d_{max}}$$
+
+Where $d_{max}$ is the critical path delay in the design.
+
+**Requirement:**
+$$T_{\text{period}} \geq \delta_{LC} + T_{clk \to q} + T_{data\_max} + T_{setup}$$
+
+Where:
+- $\delta_{LC}$: Launch-to-capture clock skew
+- $T_{clk \to q}$: FF propagation delay
+- $T_{data\_max}$: Combinational logic delay
+- $T_{setup}$: Setup time of capture FF
 # Static Timing Analysis (STA)
 
 > **Chapter Overview:** STA verifies that a synchronous design meets timing without test vectors by analyzing delays, slews, and constraints across data and clock paths. This chapter covers setup/hold, timing graphs, slew propagation (GBA/PBA), and variations (MMMC/OCV), with practical OpenSTA checks.

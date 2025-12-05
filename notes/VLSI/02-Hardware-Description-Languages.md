@@ -2,7 +2,7 @@
 
 > **Chapter Overview:** This chapter covers essential tools and languages for VLSI design, including Unix/WSL environment setup, TCL scripting for EDA automation, and comprehensive Verilog fundamentals—from syntax and data types to simulation mechanics and verification methodologies.
 
-**Prerequisites:** [[01-Introduction-to-VLSI-Design]]  
+**Prerequisites:** [[01 - Integrated Circuits]]  
 **Related Topics:** [[04-Logic-Synthesis]], [[06-Formal-Verification]], [[21-EDA-Tools-and-Tutorials]]
 
 ---

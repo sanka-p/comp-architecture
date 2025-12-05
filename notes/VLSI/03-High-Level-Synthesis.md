@@ -2,7 +2,7 @@
 
 > **Chapter Overview:** This chapter introduces High-Level Synthesis (HLS), a methodology for automatically translating high-level algorithmic descriptions (C/C++, SystemC) into optimized hardware (RTL) using tools like Bambu, enabling rapid prototyping and design space exploration.
 
-**Prerequisites:** [[01-Introduction-to-VLSI-Design]], [[02-Hardware-Description-Languages]]  
+**Prerequisites:** [[01 - Integrated Circuits]], [[02-Hardware-Description-Languages]]  
 **Related Topics:** [[04-Logic-Synthesis]], [[11-Timing-Driven-Optimization]]
 
 ---
@@ -26,6 +26,12 @@
 2. **Exploration:** Automated trade-off analysis (constraints → multiple implementations)
 3. **Verification:** Algorithm-level testbenches reuse (C testbench validates both C and RTL)
 4. **Accessibility:** Software engineers can contribute to hardware design
+
+**Challenges**:
+- Down the flow the QoR may degrade due to other metrics such as congestion not taken into account.
+- Incremental changes:
+	- Lacks readability and debuggability
+- Verification challenges
 
 ### 1.2 HLS Workflow
 
@@ -302,7 +308,7 @@ gtkwave func.vcd
 
 ## Further Reading
 
-- [[01-Introduction-to-VLSI-Design]]: System-level design, HW/SW partitioning, IP assembly (SoC methodology)
+- [[01 - Integrated Circuits]]: System-level design, HW/SW partitioning, IP assembly (SoC methodology)
 - [[04-Logic-Synthesis]]: RTL → gate-level transformation (complements HLS: C → RTL)
 - [[11-Timing-Driven-Optimization]]: Timing optimization techniques (pipelining, buffering, retiming)
 - [[02-Hardware-Description-Languages]]: Verilog fundamentals (understand HLS-generated RTL)

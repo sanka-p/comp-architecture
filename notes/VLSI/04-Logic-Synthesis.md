@@ -2,7 +2,7 @@
 
 > **Chapter Overview:** This chapter covers the complete logic synthesis flow—translating RTL (Verilog/VHDL) into optimized gate-level netlists through parsing, elaboration, construct translation, operator handling, compiler optimizations, and technology mapping using tools like Yosys.
 
-**Prerequisites:** [[02-Hardware-Description-Languages]], [[01-Introduction-to-VLSI-Design]]  
+**Prerequisites:** [[02-Hardware-Description-Languages]], [[01 - Integrated Circuits]]  
 **Related Topics:** [[05-Logic-Optimization]], [[07-Technology-Libraries]], [[10-Technology-Mapping]]
 
 ---
