@@ -1,34 +1,3 @@
-## OpenROAD Practical: Basic Physical Design Flow
-
-Below is a basic OpenROAD flow for physical design. You can run these commands in the OpenROAD shell or as a TCL script:
-
-```tcl
-# Start OpenROAD
-openroad
-
-# Read technology and cell libraries
-read_lef tech.lef stdcell.lef
-
-# Read design netlist and DEF
-read_def design.def
-
-# Floorplanning (example coordinates)
-initialize_floorplan -die_area "0 0 1000 1000" -core_area "100 100 900 900"
-
-# Placement
-place_cells
-
-# Clock Tree Synthesis
-cts
-
-# Routing
-route
-
-# Write final DEF
-write_def design_final.def
-```
-
-**Note:** Replace file names and coordinates with your actual design parameters. Each step can be expanded in the following notes for more details.
 # Physical Design Basics
 
 > **Chapter Overview:** Physical design turns the netlist into manufacturable layout. This chapter covers fabrication context (FEOL/BEOL), interconnect resistance/capacitance, preferred routing directions, signal integrity, antenna effect, and the role of LEF.

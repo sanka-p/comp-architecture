@@ -1,12 +1,3 @@
-# Logic Synthesis
-
-> **Chapter Overview:** This chapter covers the complete logic synthesis flow—translating RTL (Verilog/VHDL) into optimized gate-level netlists through parsing, elaboration, construct translation, operator handling, compiler optimizations, and technology mapping using tools like Yosys.
-
-**Prerequisites:** [[02-Hardware-Description-Languages]], [[01 - Integrated Circuits]]  
-**Related Topics:** [[05-Logic-Optimization]], [[07-Technology-Libraries]], [[10-Technology-Mapping]]
-
----
-
 ## 1. Logic Synthesis Overview
 
 ### 1.1 Role in VLSI Design Flow
@@ -22,18 +13,18 @@ Layout (GDSII)
 
 **Logic synthesis bridge:**
 - **Input:** Behavioral description (RTL)
-- **Output:** Structural description (netlist)
+- **Output:** Structural (interconnection of logic gates) description (netlist)
 - **Constraint:** Functional equivalence must be preserved
 
 ### 1.2 Synthesis Framework
 
 **Required inputs:**
-1. **RTL:** Design source code (Verilog, VHDL, SystemVerilog)
-2. **Library (.lib):** Standard cell characterization (timing, power, area)
+1. **RTL (HDL):** Design source code (Verilog, VHDL, SystemVerilog)
+2. **Library (Liberty/.lib):** Standard cell characterization (timing, power, area)
 3. **Constraints (SDC):** Timing, area, power targets
 
 **Output:**
-- **Netlist:** Gate-level interconnections using library cells
+- **Netlist:** Gate-level interconnections using library cells. Usually represented using Verilog constructs or schematics.
 - **Reports:** Area, timing, power estimates
 
 **Fundamental challenge:** Optimize PPA (performance, power, area) while maintaining functional equivalence to RTL.
@@ -51,7 +42,7 @@ Layout (GDSII)
 
 **Naming convention:**
 - Instance pin: `instance_name/pin_name` (e.g., `U1/A`)
-- Port-connected nets often named after port
+- Port-connected nets often named after port (e.g., `clk`)
 
 ---
 
@@ -62,10 +53,10 @@ Layout (GDSII)
 **1. RTL Synthesis (Translation):**
 - Parse RTL → Build syntax tree
 - Elaborate hierarchy → Link instances to masters
-- Translate Verilog constructs → Generic gates (no transistor detail)
+- Translate Verilog constructs → Generic gates
 - Arithmetic optimizations (constant propagation, strength reduction)
 
-**2. Logic Optimization:**
+**2. Logic Optimization (Area-Driven):**
 - Minimize gates at generic level
 - Boolean minimization (Karnaugh-like, scaled to large circuits)
 - Remove redundant logic
@@ -85,7 +76,7 @@ Layout (GDSII)
 **Generic gates:**
 - Well-defined Boolean function (AND, OR, NOT, XOR)
 - No transistor-level details
-- Cannot estimate delay/power accurately
+- Cannot estimate area, delay, power accurately
 - Used for early optimization (technology-independent)
 
 **Standard cells:**

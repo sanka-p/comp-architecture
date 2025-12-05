@@ -362,14 +362,4 @@ Functional specification opens up and implementation gap when it being converted
 
 ### Behaviour Synthesis / High-Level Synthesis (HLS)
 
-**Definition:** Translate untimed algorithm (C/C++/SystemC) to cycle-accurate RTL.
-
-**Inputs:**
-- Untimed algorithm (functional behavior)
-- Constraints: Resources, frequency, latency, power
-- Resource library (adders, multipliers, registers)
-
-**Outputs:**
-- RTL meeting constraints
-- Performance metrics: Area, latency, fmax, power, throughput
 

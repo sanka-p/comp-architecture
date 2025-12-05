@@ -1,3 +1,15 @@
+
+
+**Definition:** Translate untimed algorithm (C/C++/SystemC) to cycle-accurate RTL.
+
+**Inputs:**
+- Untimed algorithm (functional behavior)
+- Constraints: Resources, frequency, latency, power
+- Resource library (adders, multipliers, registers)
+
+**Outputs:**
+- RTL meeting constraints
+- Performance metrics: Area, latency, fmax, power, throughput
 # High-Level Synthesis
 
 > **Chapter Overview:** This chapter introduces High-Level Synthesis (HLS), a methodology for automatically translating high-level algorithmic descriptions (C/C++, SystemC) into optimized hardware (RTL) using tools like Bambu, enabling rapid prototyping and design space exploration.
