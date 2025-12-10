@@ -28,6 +28,48 @@ write_spef routed.spef
 Notes:
 - `repair_antennas` requires diode cells defined in your library.
 - SPEF extraction depends on tech RC data availability.
+
+## 4. Routing
+
+**Routing** creates wire layout for all nets except clock (done in CTS) and power (done in chip planning).
+
+### Routing Characteristics
+
+- Very complicated task
+- Handles huge number of nets
+- Takes hours to days for complex chips
+- **Decomposed into two steps:** Global Routing and Detailed Routing
+
+### 4.1 Global Routing
+
+**Planning stage of routing** - creates routing plan without actual wire layout.
+
+#### Process:
+1. Divide layout into rectangular routing regions (global bins)
+2. For each net, decide path through global bins
+3. No actual wires created yet
+
+**Analogy:** Planning trip from Delhi to Calcutta via Lucknow and Patna - high-level route selection.
+
+### 4.2 Detailed Routing
+
+**Implementation stage** - creates actual wire layout.
+
+#### Process:
+1. Use global bins assigned by global routing
+2. Decide actual physical interconnections
+3. Allocate wires on each metal layer
+4. Use vias to move between layers
+
+**Analogy:** Deciding specific highways, bypasses, and detailed path for the trip.
+
+### Routing Objectives
+
+- Minimize wirelength
+- Minimize routing area
+- Minimize via count
+- Minimize delay
+- Improve maximum operable frequency
 # Routing
 
 > **Chapter Overview:** Routing connects the placed cells per the netlist under design rules, timing, and signal integrity constraints. This chapter covers global vs detailed routing, grid/track models, capacity/overflow/congestion, and post-routing optimizations including timing, SI, antenna, via redundancy, and CMP fills.

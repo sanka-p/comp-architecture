@@ -38,6 +38,32 @@ Notes:
 **Prerequisites:** [[16-Placement]]  
 **Related Topics:** [[18-Routing]], [[08-Static-Timing-Analysis]]
 
+## 3. Clock Tree Synthesis (CTS)
+
+**Clock Tree Synthesis** decides the topology and wiring of the clock network, delivering clock signal from source to all sinks (flip-flops).
+
+### Why CTS is Critical
+
+- Clock signal is most critical in synchronous designs
+- Orchestrates all operations
+- Gets highest priority for routing
+- Performed before routing other signals (routing resources fully available)
+- Can avoid detours easily
+
+### CTS Objectives
+
+#### 3.1 Minimize Clock Skew
+- Ideal clock network: skew = 0
+- Method: Create **symmetric topology**
+- Goal: Make clock network as ideal as possible
+
+#### 3.2 Minimize Power Dissipation
+- Clock network contributes ~40% of total power dissipation
+- High activity: one rise and one fall per clock cycle
+- Continuous charging/discharging of capacitances
+- Techniques:
+  - Insert clock gaters
+  - Prevent clock propagation when not needed
 ---
 
 ## 1. Why CTS (Lec51)

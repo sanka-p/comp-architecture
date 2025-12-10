@@ -28,6 +28,37 @@ write_def placed.def
 
 Notes:
 - Use `-routability_driven` to reduce congestion; tune density for timing/congestion tradeoffs.
+
+## 2. Placement
+
+**Placement** determines the location of standard cells in the design within the rows defined during chip planning.
+
+### Placement Characteristics
+
+- **Highly automated** (unlike macro placement which allows manual intervention)
+- Handles millions of standard cells
+- Manual tweaking possible only for specific violations
+
+### Placement Objectives
+
+#### 2.1 Wirelength Minimization
+- **Most important objective**
+- Place connected cells close together
+- Challenge: wires not yet routed, must rely on estimates
+- Independent cells can be placed farther apart
+
+#### 2.2 Timing Optimization
+- Minimize delays on critical paths
+- Techniques:
+  - Place critical path cells close together
+  - Reduce wire delay
+  - Minimize capacitance to be driven by gates
+
+#### 2.3 Congestion Avoidance
+- Poor placement can create overcrowded regions
+- Leads to timing and routability problems later
+
+
 # Placement
 
 > **Chapter Overview:** Placement positions standard cells to make routing feasible and timing achievable. This chapter covers objectives, stages (global, legalization, detailed), HPWL estimation, analytical placement, timing-driven methods, scan chain reordering, and spare cells.
