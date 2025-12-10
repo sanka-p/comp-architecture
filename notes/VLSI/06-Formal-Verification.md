@@ -6,7 +6,102 @@
 **Related Topics:** [[05-Logic-Optimization]], [[08-Static-Timing-Analysis]]
 
 ---
+## Overview: Verification in VLSI Design Flow (Lec08)
 
+**Verification** ensures the design works as per specified functionality throughout the design transformation process (idea → RTL → netlist → layout → GDS).
+
+### Why Verification is Critical
+
+- **Error sources:** Human error, miscommunication between teams, tool misuse, tool bugs
+- **Multiple verification points:** Required whenever design undergoes non-trivial changes
+- **Early bug detection:** Catching errors early reduces fix cost and effort
+- **Increasing effort:** Verification effort grows with design complexity and features
+- **Current state:** Verification consumes significant portion of design cycle
+
+### Verification Methodology
+
+- **Verify early, verify often:** Check design after each major transformation
+- **Incremental approach:** Catch and fix problems immediately
+- **Reduced cost:** Early fixes require less time and effort than late-stage corrections
+
+---
+
+## 1. Functional Verification Methods (Lec08)
+
+### 1.1 Simulation-Based Verification
+
+**Definition:** Technique for ensuring functional correctness using test vectors (sequences of 0s/1s with timing information).
+
+#### Simulation Framework
+
+```
+Test Vectors → RTL Model → Simulator → Output Response
+                ↓
+Test Vectors → Specification (C/C++/MATLAB) → Expected Response
+                ↓
+            Compare Responses → Pass/Fail
+```
+
+**Process:**
+1. Apply test vectors to RTL model through simulator
+2. Compute expected output from specification model
+3. Compare actual vs. expected responses
+4. Pass if responses match; fail otherwise
+
+#### Advantages
+
+- **Fast:** Similar speed to running executables
+- **Versatile:** Works at multiple abstraction levels
+  - RTL level
+  - Gate-level netlist
+  - Transistor level
+- **Simple:** Similar to running and testing computer programs
+
+#### Limitations
+
+- **Incomplete coverage:** Cannot apply all possible test vectors
+- **Exponential inputs:** Number of test vectors exponential in number of inputs
+- **State space explosion:** Sequential elements (flip-flops) create massive state space
+- **Non-exhaustive:** Test only anticipated corner cases and vulnerable regions
+- **Selected coverage:** Focus on:
+  - Corner cases
+  - Areas prone to bugs
+  - Computation-intensive code sections
+  - Brittle/vulnerable areas
+
+### 1.2 Model Checking (Formal Methods)
+
+**Definition:** Functional verification using formal mathematical methods to establish proof of properties.
+
+#### Key Differences from Simulation
+
+| Aspect | Simulation | Model Checking |
+|--------|-----------|----------------|
+| Method | Test vectors | Mathematical proof |
+| Coverage | Selected inputs | All possible inputs |
+| Proof | Shows bugs exist | Proves correctness or finds counter-example |
+| Completeness | Incomplete | Complete (when proof succeeds) |
+
+#### Formal Method Characteristics
+
+- **Mathematical reasoning:** Establishes formal proofs using logical inference
+- **No test vectors needed:** Implicit coverage of all input combinations
+- **Property-based:** Proves specific properties hold for all cases
+- **Resource intensive:** Requires more computation and memory than simulation
+
+#### When to Use Each Method
+
+**Simulation:**
+- Initial design validation
+- Quick bug finding
+- Large designs where formal methods don't scale
+- General functional testing
+
+**Model Checking:**
+- Critical properties that must be proven
+- Safety-critical designs
+- Properties that are hard to verify with simulation
+- Equivalence checking between design transformations
 ## 1. Formal Verification vs Simulation
 
 ### 1.1 Simulation Limitations
@@ -451,6 +546,8 @@ $$\Phi_n = \text{initial\_state} \land \text{transitions}(0 \to 1 \to ... \to n)
 
 ## 5. Equivalence Checking
 
+carried out when the design transformation is non trivial (for eg rtl -> netlist)
+carried out multiple times in a design flow
 ### 5.1 Applications and Motivation
 
 **Verify functional equivalence across transformations:**
